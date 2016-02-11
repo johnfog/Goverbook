@@ -181,7 +181,7 @@ import java.util.ArrayList;
          ArrayList<Integer> orgId = new ArrayList<Integer>();
 
 
-//         try {
+         try {
              list = dbHelper.ListOrg(database);
 
              for (int i = 0; i < (list[0].length); i++) {
@@ -214,7 +214,7 @@ import java.util.ArrayList;
                      return actionId == EditorInfo.IME_ACTION_DONE;
                  }
              });
-//         } catch (Exception e) {}
+         } catch (Exception e) {}
          getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 
 
@@ -241,6 +241,16 @@ import java.util.ArrayList;
              public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
                  org = dbHelper.searchOrgByName(adapterForOrgs.getGroup(groupPosition).toString(), database);
                  org.DrawOrgContact(searchResultOrg, getApplicationContext());
+
+
+                 searchResultOrg.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
+                     @Override
+                     public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
+                         return false;
+                     }
+                 });
+
+
                  return false;
              }
          });
