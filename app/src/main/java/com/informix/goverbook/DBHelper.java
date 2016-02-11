@@ -158,8 +158,6 @@ public class DBHelper extends SQLiteOpenHelper {
 
         Cursor cursor = database.rawQuery(querry, new String[]{"%" + fioString + "%"});
 
-        Log.d("MyLog",fioString+cursor.getCount());
-
         int idIndex = cursor.getColumnIndex(DBHelper.KEY_ID);
         int FIOIndex = cursor.getColumnIndex(DBHelper.KEY_FIO);
         int STATUSIndex = cursor.getColumnIndex(DBHelper.KEY_STATUS);

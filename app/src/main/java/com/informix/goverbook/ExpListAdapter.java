@@ -18,19 +18,37 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
     private ArrayList<ArrayList<String>> mGroupsDescription;
     private ArrayList<String> menuList;
     private Context mContext;
+    public Boolean Type;
 
-    public ExpListAdapter(Context applicationContext, ArrayList<ArrayList<String>> subMenu, ArrayList<ArrayList<String>> subMenuDescription, ArrayList<String> menu) {
+    public ExpListAdapter(Context applicationContext, ArrayList<ArrayList<String>> subMenu, ArrayList<ArrayList<String>> subMenuDescription, ArrayList<String> menu,Boolean type) {
         mContext = applicationContext;
         mGroups = subMenu;
         menuList = menu;
         mGroupsDescription = subMenuDescription;
+        Type = type;
 
     }
 
-    public ExpListAdapter(Context applicationContext, ArrayList<ArrayList<String>> subMenu, ArrayList<String> menu) {
+    public ExpListAdapter(Context applicationContext, ArrayList<ArrayList<String>> subMenu, ArrayList<String> menu,Boolean type) {
         mContext = applicationContext;
         mGroups = subMenu;
         menuList = menu;
+        Type = type;
+        mGroupsDescription = new ArrayList<ArrayList<String>>();
+
+    }
+
+
+    public ExpListAdapter(Context applicationContext,ArrayList<String> menu,Boolean type) {
+        ArrayList<ArrayList<String>> subs=new ArrayList<ArrayList<String>>();
+        mContext = applicationContext;
+
+        menuList = menu;
+        for (int z=0;z<menu.size();z++){
+        subs.add(new ArrayList<String>());
+        }
+        mGroups = subs;
+        Type = type;
         mGroupsDescription = new ArrayList<ArrayList<String>>();
 
     }

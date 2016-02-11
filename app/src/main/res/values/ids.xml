@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <item name="searchFioResult" type="id"/>
+    <item name="searchOrgResult" type="id"/>
+    <item name="searchFaveResult" type="id"/>
 </resources>
